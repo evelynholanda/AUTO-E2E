@@ -1,0 +1,46 @@
+## Exercício extra 1 - `cy.sh`
+
+Recentemente criei um script shell que executa todos os passo anteriores com um único comando e fiz um [vídeo demonstrando seu uso](https://youtu.be/nhITDGVVqDE).
+
+> **Obs. 2:** o arquivo `cy.sh` sofreu evoluções após a gravação do vídeo e você pode encontrar a versão final abaixo:
+
+```sh
+# cy.sh
+# Este arquivo utiliza sintaxe válida somente em sistemas operacionais
+# baseados em Unix, tais como macOS e Linux.
+
+mkdir www/$1
+cd www/$1
+git init
+touch .gitignore
+echo ".DS_Store\ncypress.env.json\ncypress/screenshots/\ncypress/videos/\nnode_modules/" > .gitignore
+touch README.md
+echo "# $1\n\nTBD." > README.md
+npm init -y
+npm i cypress -D
+touch cypress.env.json
+echo "{}" > cypress.env.json
+touch cypress.env.example.json
+echo "{}" > cypress.env.example.json
+npx cypress open
+```
+
+Teu exercício é assistir o [vídeo](https://youtu.be/nhITDGVVqDE) para entender o uso do `cy.sh`.
+
+> **Obs. 3:** Este arquivo só pode ser utilizado em computadores com sistemas operacionais baseados em Unix, tais como macOS e Linux.
+
+## Exercício extra 2 - `@bahmutov/cly`
+
+Uma alternativa mais simples e que funciona bem não só para usuários de sistemas operacionais baseados em Unix, como também para usuários de Windows, é a biblioteca `cly`, criada por [Gleb Bahmutov](https://github.com/bahmutov), ex-VP de _engineering_ do time do Cypress.
+
+Para inicializar um projeto usando a bibliteca `cly`, basta executar o comando `npx @bahmutov/cly init` dentro do diretório onde você quer criar seus testes.
+
+Conheça a [documentação oficial](https://www.npmjs.com/package/@bahmutov/cly) da biblioteca `cly` no NPM.
+
+Teu exercício é criar um novo diretório para testar o uso da biblioteca `cly`.
+
+> **Obs. 4:** Para o _setup_ final, iremos utilizar a pasta do primeiro exercício e não dos exercícios extra. O foco aqui era somente te mostrar outras alternativas, caso você venha a precisar disso no futuro.
+
+___
+
+Agora que o _setup_ está pronto, vá para a [aula 1](./1.md) para configurar a análise estática de código. 🗿
